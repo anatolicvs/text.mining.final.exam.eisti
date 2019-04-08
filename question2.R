@@ -39,8 +39,3 @@ wordcloud(spamcorp, min.freq = 50, random.order = FALSE,
 
 wordcloud(allcorp, min.freq = 50, random.order = FALSE,
           colors=brewer.pal(8, "Dark2"))
-
-
-
-
-

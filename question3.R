@@ -1,6 +1,6 @@
 setwd("/Users/aytacozkan/works/text.mining/exam/Final-Exam-18-19/")
 
-# data <- read.csv("spamDataNum.csv", stringsAsFactors = FALSE)
+df1 <- read.csv("spamDataNum.csv", stringsAsFactors = FALSE)
 
 fname <- "spamDataNum.csv"
 headset <- read.csv(fname, header = TRUE)
@@ -17,15 +17,17 @@ df$CSpam=NULL
 km <- kmeans(df, 2)
 
 # 3. Compare the clusters and the classes. What 'accuracy' do we obtain?
-df1 <- data.frame(headset)
+#df1 <- data.frame(headset)
 
 # Compare the clusters and the classes
 conf1 <- table(df1$CSpam, km$cluster)
 conf1
 
-# Accuracy
+# Accuracy before  normalize the data.
 acc1 <- sum(diag(conf1)) / sum(conf1)
-acc1
+acc1 
+#[1] 0.6359487
+
 
 #4 Normalize the data and apply again kMeans. How do you explain the
 # difference between the two accuracies ?
@@ -47,6 +49,7 @@ conf2
 
 acc2 <- sum(diag(conf2)) / sum(conf2)
 acc2
+# [1] 0.7998261
 
 # Compute and plot the importance values.
 # install.packages('randomForest')
